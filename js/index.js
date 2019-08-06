@@ -49,14 +49,14 @@ mainHeader.addEventListener("click", (event) => {
 const headerElement = document.querySelector(".main-navigation");
 
 headerElement.addEventListener("wheel", (event) => {
-    event.target.style.backgroundColor = "purple";
+    event.target.style.backgroundColor = "purple";    
 
 });
 
 //DRAG - CTA IMAGE DISAPPEARS
 const ctaImage = document.querySelector(".container .intro img");
 ctaImage.addEventListener("drag", (event) => {
-    event.target.style.display = "none";
+   event.target.style.display = "none";
     
 });
 
@@ -92,7 +92,7 @@ images.forEach (image => {
 
     image.addEventListener("mouseenter", (event) => {
        
-        event.target.style.transform = "scale(1.5)";
+        event.target.style.transform = "scale(1.5)";        
 
     });
 
@@ -104,6 +104,7 @@ images.forEach(image => {
     image.addEventListener ("mouseleave", (event) => {
        
         event.target.style.transform = "scale(1)";
+        TweenMax.to("img", 2, {rotation: 360, scale: 1});//STRETCH TASK
 
     });
 
@@ -147,6 +148,8 @@ navigationLinks.forEach(navLink => {
     });
 
 });
+
+
 
 
 
