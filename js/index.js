@@ -110,6 +110,30 @@ images.forEach(image => {
 });
 
 // Nest two similar events somewhere in the site and prevent the event propagation properly
+/*Used the sign up buttons which are nested in div elements. When the sign up button is single clicked an alert is displayed
+   to indicate that the button and the parent div events were activated. Using the event.stopPropogation() method prevents 
+   the event from bubbling to parent elements and now only the destination button alert is displayed.*/
+
+const destinationDivs = document.querySelectorAll(".destination");
+
+destinationDivs.forEach (destinationDiv => {
+    destinationDiv.addEventListener("click", (event) => {       
+       
+        alert("Destination Div Event Activated...");
+    });
+
+});
+
+destinationButtons.forEach (btn => {
+    
+    btn.addEventListener("click", (event) => {
+        event.stopPropagation();        
+        alert("Button Event Activated...");
+        
+    });
+
+});
+
 
 
 
