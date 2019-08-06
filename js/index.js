@@ -17,6 +17,7 @@ o	  dblclick --
 //LOAD
 window.addEventListener("load", (event) => {
     alert("Loading Complete!!");
+    
   });
 
 //RESIZE
@@ -33,14 +34,15 @@ const navigationLinks = document.querySelectorAll("nav .nav-link");
 navigationLinks.forEach(navLink => {
     navLink.addEventListener('mouseover', (event) => {
     event.target.style.color = "orange";
+   
     
     });
 
 });
 
-//CLICK - H1
+//DOUBLE CLICK - H1
 const mainHeader = document.querySelector("h1");
-mainHeader.addEventListener("click", (event) => {
+mainHeader.addEventListener("dblclick", (event) => {
     event.target.textContent = "The Fun Bus is Ready!!";
     
 });
@@ -61,12 +63,12 @@ ctaImage.addEventListener("drag", (event) => {
 });
 
 
-//DOUBLE CLICK - SIGN UP BUTTONS
+//CLICK - SIGN UP BUTTONS
 
 const destinationButtons = document.querySelectorAll("section.content-pick .destination .btn");
 destinationButtons.forEach (btn => {
     
-    btn.addEventListener("dblclick", (event) => {
+    btn.addEventListener("click", (event) => {
         event.target.textContent = "You are Now Signed Up!!";
         event.target.style.backgroundColor = "red";
     });
@@ -90,9 +92,9 @@ const images = document.querySelectorAll("img");
 
 images.forEach (image => {
 
-    image.addEventListener("mouseenter", (event) => {
-       
-        event.target.style.transform = "scale(1.5)";        
+    image.addEventListener("mouseenter", (event) => {       
+        event.target.style.transform = "scale(1.5)";    
+             
 
     });
 
@@ -101,10 +103,8 @@ images.forEach (image => {
 //MOUSELEAVE - IMAGES
 images.forEach(image => {
 
-    image.addEventListener ("mouseleave", (event) => {
-       
-        event.target.style.transform = "scale(1)";
-        TweenMax.to("img", 2, {rotation: 360, scale: 1});//STRETCH TASK
+    image.addEventListener ("mouseleave", (event) => {       
+        event.target.style.transform = "scale(1)";        
 
     });
 
@@ -118,7 +118,7 @@ images.forEach(image => {
 const destinationDivs = document.querySelectorAll(".destination");
 
 destinationDivs.forEach (destinationDiv => {
-    destinationDiv.addEventListener("click", (event) => {       
+    destinationDiv.addEventListener("dblclick", (event) => {       
        
         alert("Destination Div Event Activated...");
     });
@@ -127,15 +127,13 @@ destinationDivs.forEach (destinationDiv => {
 
 destinationButtons.forEach (btn => {
     
-    btn.addEventListener("click", (event) => {
+    btn.addEventListener("dblclick", (event) => {
         event.stopPropagation();        
         alert("Button Event Activated...");
         
     });
 
 });
-
-
 
 
 //Stop the navigation from items from refreshing the page by using `preventDefault()`
@@ -148,6 +146,20 @@ navigationLinks.forEach(navLink => {
     });
 
 });
+
+/******************************STRETCH TASK - GSAP*********************************/
+
+//DBLCLICK - IMAGES: rotates the images on the page
+images.forEach (image => {
+
+    image.addEventListener("dblclick", (event) => {  
+        TweenMax.to(event.target, 2, {rotation: 360, scale: 1} );     
+    });
+    
+});
+
+
+ 
 
 
 
