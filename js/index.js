@@ -8,14 +8,23 @@ o	  drag / drop--
 o	  load --
 o	  resize--
 o	  dblclick --
-      copy--
-      wheel
-      mouseenter (switch images)
-      onmouseout (original images)
-
-
+      copy--      
+      mouseenter--
+      mousedown--
+      wheel--
       
 */
+
+//LOAD
+window.addEventListener("load", (event) => {
+    alert("Loading Complete!!");
+  });
+
+//RESIZE
+window.addEventListener("resize", (event) => {
+    
+    alert("Resizing!!");
+});
 
 //MOUSEOVER
 
@@ -32,9 +41,17 @@ navigationLinks.forEach(navLink => {
 
 //CLICK
 const mainHeader = document.querySelector("h1");
-mainHeader.addEventListener("wheel", (event) => {
+mainHeader.addEventListener("click", (event) => {
     event.target.textContent = "The Fun Bus is Ready!!";
     
+});
+
+//WHEEL
+const headerElement = document.querySelector(".main-navigation");
+
+headerElement.addEventListener("wheel", (event) => {
+    event.target.style.backgroundColor = "purple";
+
 });
 
 //DRAG
@@ -44,16 +61,6 @@ ctaImage.addEventListener("drag", (event) => {
     
 });
 
-//LOAD
-window.addEventListener("load", (event) => {
-    alert("Loading Complete!!");
-  });
-
-//RESIZE
-window.addEventListener("resize", (event) => {
-    
-    alert("Resizing!!");
-});
 
 //DOUBLE CLICK
 
@@ -79,9 +86,32 @@ paragraphs.forEach (paragraph => {
 
 });
 
-//WHEEL
+//MOUSEENTER
+const images = document.querySelectorAll("img");
 
-const containerEvent = document.querySelector(".container .home");
-containerEvent.addEventListener ("wheel", (event) => {
-    event.target.style.backgroundColor = "pink";
+images.forEach (image => {
+
+    image.addEventListener("mouseenter", (event) => {
+       
+        event.target.style.transform = "scale(1.5)";
+
+    });
+
 });
+
+//MOUSEDOWN
+images.forEach(image => {
+
+    image.addEventListener ("mousedown", (event) => {
+       
+        event.target.style.transform = "scale(1)";
+
+    });
+
+});
+
+
+
+
+
+
